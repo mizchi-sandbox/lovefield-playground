@@ -1,0 +1,17 @@
+name: mydb
+version: 1
+table:
+  User:
+    properties:
+      id: integer
+      name: string
+      description: ?string
+    unique: [name]
+  Item:
+    properties:
+      title: string
+      body: string
+      createdAt: number
+    index:
+      createdAt:
+        unique: false

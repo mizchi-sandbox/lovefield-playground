@@ -17,6 +17,11 @@ module.exports = {
         use: "babel-loader",
         exclude: /node_modules/
       }
+      // {
+      //   test: /\.yml$/,
+      //   loader: "yaml",
+      //   exclude: /node_modules/
+      // },
     ]
   }
 };

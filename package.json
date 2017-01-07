@@ -4,15 +4,16 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn run watch:css & yarn run watch:js & http-server public -p 3355 -c-1",
-    "build:js": "webpack",
+    "gen:types": "./script/codegen.js config/schema.yml > gen/types.js",
+    "build:js": "yarn run gen:types; webpack",
     "build:js:production": "NODE_ENV=production webpack",
     "build:css": "postcss -c .postcssrc.json",
-    "watch:js": "webpack -w",
+    "watch:js": "yarn run gen:types; webpack -w",
     "watch:css": "postcss -w -c .postcssrc.json",
     "typecheck": "flow",
     "lint": "eslint src test",
     "lint:fix": "eslint src test --fix",
-    "test": "NODE_ENV=test ava test/**/*-test.js",
+    "test": "yarn run gen:types; NODE_ENV=test ava test/**/*-test.js",
     "cover": "nyc --reporter=lcov --reporter=text yarn test"
   },
   "dependencies": {

@@ -6,5 +6,3 @@ if (global.global) {
   require("lovefield");
   require("require-yaml");
 }
-
-require("./main");
